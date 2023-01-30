@@ -10,15 +10,18 @@ const DetailPage = ()=>{
     const [data,setData] =useState([])
     const [user,setUser] =useState([])
     const [male,setMale] =useState(0)
+    let data1
 
     const getData = ()=>{
         const dbRef = ref(getDatabase(Database()));
         get(child(dbRef, `data`)).then((snapshot) => {
             if (snapshot.exists()) {
-                setData(snapshot.val())
-                    setUser(data[0]);
-                    console.log(data)
-                    console.log(user)
+                data1=snapshot.val();
+                console.log(data1)
+                setData(data1)
+                setUser(data1[0])
+                console.log(data)
+                console.log(user)
             } else {
                 console.log("No data available");
             }
@@ -31,7 +34,7 @@ const DetailPage = ()=>{
         
         getData();
     },[])
-
+    
 
     
 
@@ -47,7 +50,7 @@ const DetailPage = ()=>{
             </div>
             <div className={styles.parent}>
                 <div className={styles.leftdrawer}>left</div>
-                <div className={styles.detail}>detail</div>
+                <div className={styles.detail}>{user.Name}</div>
                 <div className={styles.rightside}>right</div>
             </div>
         </div>
