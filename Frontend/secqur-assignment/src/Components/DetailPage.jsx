@@ -50,7 +50,7 @@ const DetailPage = ()=>{
             </div>
             <div className={styles.parent}>
                 <div className={styles.leftdrawer}>left</div>
-                <div className={styles.detail}>{user.Name}</div>
+                <div className={styles.detail}></div>
                 <div className={styles.rightside}>right</div>
             </div>
         </div>
